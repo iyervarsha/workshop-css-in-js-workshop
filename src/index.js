@@ -7,6 +7,9 @@ import youtubeSearch from './youtube-api';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
+const VideoSection = styled.div`
+  display: flex;
+`;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,11 +36,12 @@ class App extends Component {
     return (
       <div>
         <SearchBar onSearchChange={this.search} />
-        <div id="video-section">
+
+        <VideoSection>
           <VideoList onVideoSelect={selectedVideo => this.setState({ selectedVideo })} videos={this.state.videos} />
           <VideoDetail video={this.state.selectedVideo} />
-        </div>
-      </div>
+        </VideoSection>
+</div>
     );
   }
 }
